@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.sidelists {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.sidelists .sided {
+  width: 100%;
+  list-style: none;
+  padding: 0 15px;
+  margin-top: 60px;
+  height: 100vh;
+  position: absolute;
+}
+
+.sidelists .sided li {
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.sidelists ul li i {
+  font-size: 24px;
+  color: #fff;
+  margin-right: 15px;
+}
+
+.sidelists ul li p {
+  margin: 0;
+}
+
+.sidelists ul li p a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.sidelists ul li p a:hover {
+  color: #00aaff;
+}
+
+.sidelists ul li:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+.sidelists ul li i:hover {
+  color: #00aaff;
+}
+
+.sidelists ul li:last-child {
+  margin-top: auto;
+}
+
+.lite {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+}
+.lite span{
+  display: flex;
+  align-items: center;
+}
+
+.dropdown {
+  width: 100%;
+}
+
+.dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.dropdown.open .dropdown-content {
+  max-height: 100px; /* Adjust based on the number of dropdown items */
+  transition: max-height 0.3s ease-in;
+}
+
+.bi-chevron-down.rotate {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+.bi-chevron-down {
+  transition: transform 0.3s ease;
+}
+
+

@@ -1,0 +1,11 @@
+.resultImage{
+    margin-left: 25%;
+}
+
+@media screen and (max-width:768px) {
+    .guju{
+        overflow-x: scroll;
+        width: 100%;
+       
+    }
+}

@@ -1,0 +1,147 @@
+/* General layout adjustments */
+.metrics {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px; /* Increased gap for better spacing */
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+/* Card styling for student, teacher, assignments metrics */
+.students {
+  flex: 1 1 calc(25% - 20px); /* Adjusted to allow for wrapping with margin */
+  border: 1px solid #e1e1e1;
+  padding: 20px; /* Increased padding for better spacing */
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center;
+  height: auto;
+  border-radius: 8px; /* Slightly larger border-radius for a modern look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slightly increased shadow for depth */
+  background-color: #ffffff;
+  text-align: center; /* Center-align text */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.students .img img {
+  width: 80px; /* Larger images */
+  height: 80px;
+  margin-bottom: 10px; /* Add margin below image */
+}
+
+.students .words h5 {
+  margin: 10px 0 5px; /* Add margin above and below */
+  color: #333;
+  font-size: 18px;
+  font-weight: 600; /* Make font weight bolder */
+}
+
+.students .words span {
+  font-size: 16px;
+  color: #3f6e94;
+  font-weight: bold;
+}
+
+.students:hover {
+  transform: translateY(-5px); /* Slight raise effect on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Chart container styling */
+.mixed-chart {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  width: 100%; /* Ensure full width */
+}
+
+/* Table styling */
+.table {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Ensure full width */
+}
+
+.table thead th {
+  border-bottom: 2px solid #e1e1e1;
+  font-weight: 600; /* Make header font weight bolder */
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+
+/* Calendar container styling */
+.calendar {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.row_info {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  gap: 20px; /* Increased gap for better spacing */
+}
+
+.col_metrics {
+  flex: 2; /* Allow more space for metrics column */
+}
+
+.col_calendar {
+  flex: 1; /* Allow less space for calendar column */
+}
+
+/* Performance and submissions table styling */
+.perfs, .subs {
+  width: 100%; /* Ensure full width */
+  margin-top: 20px; /* Add margin at the top */
+  overflow-x: auto; /* Enable horizontal scroll on small screens */
+}
+
+.seeAll {
+  text-align: right; /* Right-align the 'see all' link */
+  margin-top: 10px; /* Add margin at the top */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .metrics {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .mixed-chart {
+    width: 100%;
+  }
+
+  .students {
+    width: 100%;
+  }
+
+  .subs, .perfs {
+    width: 100%;
+    overflow-x: scroll;
+  }
+
+  .row_info {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .col_metrics, .col_calendar {
+    width: 100%;
+  }
+}

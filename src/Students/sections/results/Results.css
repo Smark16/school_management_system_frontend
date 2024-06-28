@@ -1,0 +1,92 @@
+/* Results.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+h4.text-center {
+    text-align: center;
+    font-size: 28px;
+    color: #004085;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.detail {
+    max-width: 800px;
+    margin: 0 auto 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.detail ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.detail ul li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.detail ul li h6 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.detail ul li span {
+    font-size: 16px;
+    color: #555;
+    margin-top: 10px;
+}
+
+.container h5 {
+    font-size: 24px;
+    color: #004085;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.table_result {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.table_result thead th {
+    background-color: #004085;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+    font-size: 16px;
+}
+
+.table_result tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.table_result tbody tr:nth-child(even) {
+    background-color: #fff;
+}
+
+.table_result tbody td, .table tbody th {
+    padding: 10px;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+}
+
+.table_result tbody tr:last-child td {
+    border-bottom: none;
+}

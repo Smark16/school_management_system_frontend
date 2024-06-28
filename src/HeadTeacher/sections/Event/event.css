@@ -1,0 +1,218 @@
+/* Event.css */
+
+.event_container {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.add-event form {
+  width: 100%;
+}
+
+.add-event .col-form-label {
+  font-weight: lighter;
+  font-size: small;
+  padding: 0;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 2.5em;
+  color: #333;
+}
+
+.header p {
+  font-size: 1.2em;
+  color: #666;
+}
+
+.add-event,
+.upcoming-events,
+.past-events,
+.contact {
+  margin-bottom: 40px;
+}
+
+h2 {
+  font-size: 2em;
+  border-bottom: 2px solid #333;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 1.5em;
+  color: #333;
+}
+
+p {
+  font-size: 1em;
+  color: #555;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form div {
+  margin-bottom: 10px;
+}
+
+form input,
+form textarea {
+  padding: 8px;
+  font-size: 1em;
+  margin-top: 5px;
+}
+
+form button {
+  padding: 10px 15px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+.event-image {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+}
+
+.toolbar {
+  display: block;
+  gap: 5px;
+}
+
+.toolbar .up {
+  display: flex;
+  gap: 5px;
+}
+
+.toolbar button {
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.cont {
+  border: 1px solid #ccc;
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+  padding: 10px;
+  overflow-y: scroll;
+}
+
+.progress-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  margin-top: 10px;
+}
+.progress-wrapper:hover{
+ background-color: hsl(0, 0%, 87%);
+ padding-top: 0;
+ padding-left: 5px;
+ border-radius: 10px;
+} 
+
+.progress-bar {
+  height: 10px;
+  background-color: #007bff;
+  flex-grow: 1; /* Takes up remaining space */
+}
+/* .upcoming-events{
+  border: 2px solid red;
+  overflow-x: scroll;
+} */
+
+.progress-bar::before {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 0;
+  background-color: #28a745;
+}
+
+.reduce_letter{
+  white-space: nowrap; 
+  overflow: hidden; /* Hides overflow */
+  text-overflow: ellipsis; /* Displays ellipsis (...) when text overflows */
+  display: inline-block; /* Ensures it respects width and height constraints */
+  max-width:70%;  
+  cursor: pointer;
+  margin-top: 30px;
+}
+.progress-bar{
+  margin-top: 35px;
+}
+.event-image {
+  max-width: 100%;
+}
+.file{
+  width: 300px;
+  height: 40px;
+  border: 2px solid red;
+}
+
+.down {
+  max-height: 0;
+  display: flex;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.show {
+  max-height: 100px; /* Adjust as needed */
+}
+
+.down ul {
+  display: flex;
+  gap: 5px;
+}
+
+.down ul li {
+  flex: 1;
+  flex-wrap: wrap;
+}
+.actions{
+  list-style: none;
+  display: flex;
+  gap: 3px;
+  align-items:center;
+}

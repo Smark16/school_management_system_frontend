@@ -1,0 +1,182 @@
+/* Container for the links */
+.links ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-around; /* Space items evenly */
+    padding: 20px;
+    background-color: #f8f9fa; /* Light background for contrast */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-radius: 10px; /* Rounded corners for a modern look */
+    list-style: none; /* Remove default list styling */
+    margin: 0; /* Remove default margin */
+    transition: max-height 0.5s ease, opacity 0.5s ease; /* Smooth transitions */
+    max-height: 500px; /* Ensure the menu is fully visible */
+    opacity: 1;
+    overflow: hidden;
+    z-index: 1000; /* Ensure the links are on top */
+}
+.headlink {
+    margin-top: 50px;
+}
+
+/* Hide the menu initially on small screens */
+.links {
+    max-height: 500px;
+    opacity: 1;
+    position: relative;
+}
+
+.links.open {
+    max-height: 500px; /* Ensure the menu is fully visible */
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure the links are on top */
+}
+
+/* Hide the menu on small screens if not open */
+@media (max-width: 768px) {
+    .links {
+        max-height: 0;
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 1000; /* Ensure the links are on top */
+        transition: all 0.5s ease;
+    }
+
+    .links.open {
+        max-height: 500px; /* Ensure the menu is fully visible */
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 1000; /* Ensure the links are on top */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        transition: all 0.5s ease;
+    }
+}
+
+/* Style for each list item */
+.links ul li {
+    cursor: pointer;
+    margin: 0 15px; /* Add spacing between items */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transitions */
+    position: relative;
+}
+
+/* Style for the links */
+.links ul li a {
+    text-decoration: none; /* Remove underline from links */
+    font-size: 18px; /* Larger font size */
+    color: #333; /* Darker color for readability */
+    font-weight: 500; /* Medium font weight */
+    padding: 10px 15px; /* Padding for click area */
+    border-radius: 5px; /* Slightly rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+    display: flex;
+    align-items: center;
+}
+
+/* Hover effects for list items */
+.links ul li:hover {
+    transform: translateY(-2px); /* Slight raise on hover */
+}
+
+/* Hover effects for links */
+.links ul li a:hover {
+    color: #0056b3; /* Change text color on hover */
+    background-color: #e9ecef; /* Light background on hover */
+}
+
+/* Active link styling */
+.links ul li a.active {
+    color: #fff; /* White text */
+    background-color: #007bff; /* Primary color background */
+}
+
+/* Indicator for active link */
+.links ul li.active::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 10px;
+    background-color: orange; /* Same as the active background color */
+}
+
+/* Menu button styles */
+.menu-button-close {
+    display: none; /* Hide button by default */
+    background-color: #007bff; /* Primary color background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Padding for click area */
+    font-size: 16px; /* Font size */
+    border-radius: 5px; /* Slightly rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s ease; /* Smooth transition */
+    margin: 20px; /* Margin for spacing */
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1100; /* Ensure the button is on top */
+}
+
+/* Show button and adjust navigation for mobile devices */
+@media (max-width: 768px) {
+    .menu-button-close {
+        margin-top: 50px;
+        display: block; /* Show button on small screens */
+        width: 10px;
+        margin-left: -20px;
+        color: #fff;
+        z-index: 1000;
+        transition: width 0.3s;
+    }
+    .menu-button-close span {
+        display: none;
+        white-space: nowrap;
+    }
+    .menu-button-close:hover {
+        width: 200px;
+        color: #fff;
+    }
+    .links ul {
+        margin-top: 100px;
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the start */
+        padding: 10px; /* Adjust padding */
+    }
+    .links ul li {
+        margin: 10px 0; /* Adjust margin for spacing */
+        width: 100%; /* Make each item take full width */
+    }
+    .links ul li a {
+        width: 100%; /* Make links take full width */
+        text-align: center; /* Center the text */
+        padding: 15px; /* Increase padding for touch-friendly size */
+        font-size: 20px; /* Increase font size for readability */
+    }
+}
+
+/* Overlay styles */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 900; /* Ensure the overlay is below the menu but above other content */
+}

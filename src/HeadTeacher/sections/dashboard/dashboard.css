@@ -1,0 +1,214 @@
+/* General styling for the dashboard container */
+.dashboard-container {
+    background-color: #f0f2f5; /* Light background */
+    padding: 20px 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Professional font */
+    color: #333; /* Darker text color */
+}
+
+.welcome {
+    font-size: 26px;
+    margin-bottom: 30px;
+    color: #2c3e50; /* Dark text color */
+}
+
+.metrics {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.board {
+    background: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1); /* Subtle shadow */
+    text-align: center;
+    flex: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px;
+}
+
+.board h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #555; /* Slightly lighter text */
+}
+
+.board span {
+    font-size: 30px;
+    font-weight: bold;
+    color: #3498db; /* Primary color */
+}
+.board p{
+    cursor: pointer;
+}
+
+.board:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15); /* Slightly stronger shadow on hover */
+}
+
+/* Main content styling */
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.announcements, .recent-activities, .chart-container {
+    background: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1); /* Subtle shadow */
+    flex: 1;
+    min-width: 300px; /* Ensure a minimum width */
+}
+
+.announcements h4, .recent-activities h4, .chart-container h4 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #2c3e50; /* Darker text */
+}
+
+.announcements ul, .recent-activities ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.announcements li, .recent-activities li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333; /* Darker text */
+}
+
+/* Placeholder for the chart */
+.chart-placeholder {
+    height: 300px;
+    background: #e9ecef; /* Light gray background */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888; /* Gray text */
+    font-size: 16px;
+}
+
+/* Link styling */
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Modal styling */
+.custom-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.custom-modal {
+    background: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
+}
+
+.custom-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.custom-modal-title {
+    margin: 0;
+    font-size: 18px;
+    color: #2c3e50;
+}
+
+.custom-modal-body {
+    padding: 10px 0;
+}
+
+.close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #999;
+}
+
+.close:hover {
+    color: #333;
+}
+
+.seeAll {
+    margin-left: 80%;
+    cursor: pointer;
+    color: #3498db;
+    font-weight: bold;
+}
+
+.seeAll:hover {
+    color: #2980b9;
+}
+
+.buu {
+    font-size: 15px;
+    color: #e74c3c; /* Red text for warning */
+}
+.mainEvent{
+    border-bottom: 1px solid #ddd;
+}
+.mainEvent h5{
+    font-weight: bolder;
+}
+/* Add responsive design */
+@media screen and (max-width: 768px) {
+    .metrics {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .board {
+        margin-bottom: 20px;
+        width:100%;
+    }
+
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .announcements{
+        width: 100%;
+    }
+    .tbl{
+        width: 100%;
+        overflow-x: scroll;
+    }
+
+    .stdlist{
+        width: 100%;
+        overflow-x: scroll;
+    }
+   
+    body{
+        overflow-x: hidden;
+    }
+}

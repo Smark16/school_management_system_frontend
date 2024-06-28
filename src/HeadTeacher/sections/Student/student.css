@@ -1,0 +1,95 @@
+.add_student{
+    position: absolute;
+    right: 0;
+    top: 125px;
+}
+
+.student_register_form form {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    border: 1px solid #ddd;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    background: #fff;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    width: 500px;
+  }
+  
+  .student_register_form form.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .student_register_form form.out {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  
+  .edit_registered_student form{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    border: 1px solid #ddd;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    background: #fff;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    width: 500px;
+  }
+  .edit_registered_student form.activated{
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .edit_registered_student form.outted{
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  
+  .no_stud_img{
+    margin: 0 auto;
+  }
+  
+  @media screen and (max-width:768px) {
+    .add_student{
+      width: 0px;
+      white-space: nowrap;
+      position: absolute;
+      top: 60px;
+    }
+    .bong{
+      margin-top: 70px;
+    }
+    .bong h4{
+      font-size: 20px;
+    }
+   
+    .student_register_form form {
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      border: 1px solid #ddd;
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      background: #fff;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease-in-out;
+      width: 400px;
+    }
+  }

@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  width: 100%;
+  height: 100vh;
+}
+
+.sidelist {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 15px;
+}
+
+.sidelist .stud_list {
+  width: 100%;
+  list-style: none;
+  padding: 0 15px;
+  margin-top: 60px;
+  
+}
+
+.sidelist ul li {
+  width: 100%;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.sidelist ul li i {
+  font-size: 24px;
+  margin-right: 15px;
+}
+
+.sidelist ul li p {
+  margin: 0;
+}
+
+.sidelist ul li p a {
+  text-decoration: none;
+  font-size: 18px;
+  
+  transition: color 0.3s ease;
+}
+
+.sidelist ul li p a:hover {
+  color: #00aaff;
+}
+
+.sidelist ul li:hover {
+  border-radius: 5px;
+}
+
+.sidelist ul li i:hover {
+  color: #00aaff;
+}
+
+.sidelist ul li i{
+  color:#000;
+}
+
+.sidelist ul li:last-child {
+  margin-top: auto;
+}
+
+.dropdown {
+  width: 100%;
+}
+.dropdown:hover{
+  background: rgba(122, 117, 117, 0.6);
+  border-radius: 10px;
+}
+.dropdown .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dropdown .submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.dropdown.open .submenu {
+  max-height:300px; /* Adjust based on the number of dropdown items */
+  transition: max-height 0.3s ease-in;
+}
+
+.dropdown .bi-chevron-compact-down {
+  transition: transform 0.3s ease;
+  color: #000;
+}
+
+.dropdown .bi-chevron-compact-down.rotate {
+  transform: rotate(180deg);
+}
+.submenu p{
+  cursor: pointer;
+}
+.submenu p:hover{
+  color:#00aaff;
+}
+
+

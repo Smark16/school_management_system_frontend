@@ -8,11 +8,11 @@ function ExamQtn() {
   const { id } = useParams();
   const { user, students } = useContext(AuthContext);
   const navigate = useNavigate();
-  const deptExamUrl = `http://127.0.0.1:8000/school/exam_questions/${id}`;
-  const updateStatus = `http://127.0.0.1:8000/school/update_status/${id}`;
-  const updateExam = `http://127.0.0.1:8000/school/updateExam/${id}`;
-  const updateQuestion = `http://127.0.0.1:8000/school/update_question/${id}`;
-  const updateAnswerUrl = `http://127.0.0.1:8000/school/update_answer`;
+  const deptExamUrl = `https://school-management-system-backend-u6m8.onrender.com/school/exam_questions/${id}`;
+  const updateStatus = `https://school-management-system-backend-u6m8.onrender.com/school/update_status/${id}`;
+  const updateExam = `https://school-management-system-backend-u6m8.onrender.com/school/updateExam/${id}`;
+  const updateQuestion = `https://school-management-system-backend-u6m8.onrender.com/school/update_question/${id}`;
+  const updateAnswerUrl = `https://school-management-system-backend-u6m8.onrender.com/school/update_answer`;
 
   const [examData, setExamData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -169,7 +169,7 @@ function ExamQtn() {
             <div className="col-md-12">
               <p>{qtnNumber}. {currentQuestion.text}</p>
               {currentQuestion.image && (
-                <img src={`http://127.0.0.1:8000/${currentQuestion.image}`} alt="Question" className="question-image" />
+                <img src={`https://school-management-system-backend-u6m8.onrender.com/${currentQuestion.image}`} alt="Question" className="question-image" />
               )}
 
               <div className="options">

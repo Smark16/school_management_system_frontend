@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 
 import { AuthContext } from '@/Context/AuthContext';
 
-const postExams = 'http://127.0.0.1:8000/school/post_exam';
+const postExams = 'https://school-management-system-backend-u6m8.onrender.com/school/post_exam';
 
 function ExamDetail() {
     const { user, teachers } = useContext(AuthContext);
@@ -14,7 +14,7 @@ function ExamDetail() {
     const loggedinTeacher = teachers.find(teacher => teacher.user === user.user_id);
     const departmentId = loggedinTeacher.department.id;
 
-    const questionView = `http://127.0.0.1:8000/school/get_teacher_questions/${loggedinTeacher.id}/${departmentId}`;
+    const questionView = `https://school-management-system-backend-u6m8.onrender.com/school/get_teacher_questions/${loggedinTeacher.id}/${departmentId}`;
 
     const getTeacherQuestions = async () => {
         try {

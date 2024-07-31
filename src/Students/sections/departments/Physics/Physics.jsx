@@ -3,14 +3,14 @@ import './physics.css';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
-const downloadEndpoint = 'http://127.0.0.1:8000/school/download_file';
+const downloadEndpoint = 'https://school-management-system-backend-u6m8.onrender.com/school/download_file';
 
 function Physics() {
   const { id } = useParams(); 
   const [currentWeek, setCurrentWeek] = useState(null); 
-  const singleDeptUrl = `http://127.0.0.1:8000/school/single_dept/${id}`; 
-  const deptWork = `http://127.0.0.1:8000/school/department_files/${id}`; 
-  const deptExam = `http://127.0.0.1:8000/school/dept_exams/${id}`; 
+  const singleDeptUrl = `https://school-management-system-backend-u6m8.onrender.com/school/single_dept/${id}`; 
+  const deptWork = `https://school-management-system-backend-u6m8.onrender.com/school/department_files/${id}`; 
+  const deptExam = `https://school-management-system-backend-u6m8.onrender.com/school/dept_exams/${id}`; 
 
   const [info, setInfo] = useState(''); 
   const [files, setFiles] = useState([]); 

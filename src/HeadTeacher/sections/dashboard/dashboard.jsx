@@ -35,7 +35,7 @@ function HeadDashboard() {
     formData.append("description", department.description);
     formData.append("term", department.term);
 
-    axios.post('http://127.0.0.1:8000/school/post_department', formData)
+    axios.post('https://school-management-system-backend-u6m8.onrender.com/school/post_department', formData)
       .then(response => {
         if (response.status === 201) {
           setDepartments(prevDepartments => [...prevDepartments, department]);

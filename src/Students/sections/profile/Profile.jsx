@@ -3,19 +3,19 @@ import Profile from '@/Teacher/sections/profile/img/profile.jpg';
 import './studentProfile.css';
 import { AuthContext } from '@/Context/AuthContext';
 import axios from 'axios';
-const updTEsTUDENT = 'http://127.0.0.1:8000/school/update_student/1'
+const updTEsTUDENT = 'https://school-management-system-backend-u6m8.onrender.com/school/update_student/1'
 import useCustomHook from '../customHook';
 import Swal from 'sweetalert2';
 import UseAxios from '@/components/UseAxios';
 
-const changePassword = 'http://127.0.0.1:8000/school/change-password/';
+const changePassword = 'https://school-management-system-backend-u6m8.onrender.com/school/change-password/';
 
 function StudentProfile() {
   const {user} = useContext(AuthContext)
   const {loggedStudent} = useCustomHook()
   const axiosInstance = UseAxios();
-  const currentStudent = `http://127.0.0.1:8000/school/get_student_user/${user.user_id}`;
-  const updTEsTUDENT = `http://127.0.0.1:8000/school/update_student/${loggedStudent}`
+  const currentStudent = `https://school-management-system-backend-u6m8.onrender.com/school/get_student_user/${user.user_id}`;
+  const updTEsTUDENT = `https://school-management-system-backend-u6m8.onrender.com/school/update_student/${loggedStudent}`
   const [loggedDetail, setLoggedDetail] = useState({name:"", dob:""})
   const [status, setStatus] = useState('')
   const [oldPassword, setOldPassword] = useState('');

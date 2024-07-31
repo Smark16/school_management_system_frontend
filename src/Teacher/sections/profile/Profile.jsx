@@ -6,7 +6,7 @@ import image from './img/profile.jpg';
 import Swal from 'sweetalert2';
 import UseAxios from '@/components/UseAxios';
 
-const changePassword = 'http://127.0.0.1:8000/school/change-password/';
+const changePassword = 'https://school-management-system-backend-u6m8.onrender.com/school/change-password/';
 
 function Profile() {
   const { user, teachers } = useContext(AuthContext);
@@ -21,12 +21,12 @@ function Profile() {
   const [message, setMessage] = useState('');
   const [showModal, setShowModal] = useState(false);
 
-  const Teacher = `http://127.0.0.1:8000/school/get_user/${user.user_id}`;
+  const Teacher = `https://school-management-system-backend-u6m8.onrender.com/school/get_user/${user.user_id}`;
   
   const loggedinTeacher = teachers.find(teacher => teacher.user === user.user_id);
   
-  const updateTeacherUrl = loggedinTeacher ? `http://127.0.0.1:8000/school/update_teacher/${loggedinTeacher.id}` : null;
-  const singleTeacherUrl = loggedinTeacher ? `http://127.0.0.1:8000/school/retrieve_teacher/${loggedinTeacher.id}` : null;
+  const updateTeacherUrl = loggedinTeacher ? `https://school-management-system-backend-u6m8.onrender.com/school/update_teacher/${loggedinTeacher.id}` : null;
+  const singleTeacherUrl = loggedinTeacher ? `https://school-management-system-backend-u6m8.onrender.com/school/retrieve_teacher/${loggedinTeacher.id}` : null;
 
   const fetchUser = async () => {
     try {

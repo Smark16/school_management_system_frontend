@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Faqs.css'; // Import the CSS file
 import axios from 'axios';
 
-const faqsApi = 'http://127.0.0.1:8000/school/faqs'
+const faqsApi = 'https://school-management-system-backend-u6m8.onrender.com/school/faqs'
 function Faqs() {
   const [selected, setSelected] = useState(null);
   const [faqs, setFaqs] = useState([])

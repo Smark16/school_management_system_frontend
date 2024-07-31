@@ -28,7 +28,7 @@ function StudentDashboard() {
     }
   }, [students, user]);
 
-  const stud_perfomance = `http://127.0.0.1:8000/school/student_performance/${studId}`;
+  const stud_perfomance = `https://school-management-system-backend-u6m8.onrender.com/school/student_performance/${studId}`;
 
   const perfomanceRate = async () => {
     try {

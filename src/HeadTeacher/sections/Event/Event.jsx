@@ -4,9 +4,9 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import DOMPurify from 'dompurify';
 
-const newEvents = 'http://127.0.0.1:8000/school/post_events';
-const uploadUrl = 'http://127.0.0.1:8000/school/upload_file';
-const upcomingevents = 'http://127.0.0.1:8000/school/upcoming_events';
+const newEvents = 'https://school-management-system-backend-u6m8.onrender.com/school/post_events';
+const uploadUrl = 'https://school-management-system-backend-u6m8.onrender.com/school/upload_file';
+const upcomingevents = 'https://school-management-system-backend-u6m8.onrender.com/school/upcoming_events';
 
 function Event() {
   const [events, setEvents] = useState([]);
@@ -126,7 +126,7 @@ function Event() {
 
     try {
       const response = isEditing
-        ? await axios.put(`http://127.0.0.1:8000/school/edit_event/${newEvent.id}`, formData)
+        ? await axios.put(`https://school-management-system-backend-u6m8.onrender.com/school/edit_event/${newEvent.id}`, formData)
         : await axios.post(newEvents, formData);
         
       if (response.status === 200) {
@@ -169,7 +169,7 @@ function Event() {
 
   const handleDelete = async (id)=>{
     try{
-       await axios.delete(`http://127.0.0.1:8000/school/delete_event/${id}`)
+       await axios.delete(`https://school-management-system-backend-u6m8.onrender.com/school/delete_event/${id}`)
        const remainedEvent = events.filter(event => event.id !== id)
        setEvents(remainedEvent)
     }catch(err){

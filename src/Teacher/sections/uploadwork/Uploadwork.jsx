@@ -7,9 +7,9 @@ import { AuthContext } from '@/Context/AuthContext';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 
-const postwork = 'http://127.0.0.1:8000/school/post_work';
-const downloadEndpoint = 'http://127.0.0.1:8000/school/download_file';
-const uploadUrl = 'http://127.0.0.1:8000/school/upload_file';
+const postwork = 'https://school-management-system-backend-u6m8.onrender.com/school/post_work';
+const downloadEndpoint = 'https://school-management-system-backend-u6m8.onrender.com/school/download_file';
+const uploadUrl = 'https://school-management-system-backend-u6m8.onrender.com/school/upload_file';
 
 function Uploadwork() {
   const { teachers, user, setFileName } = useContext(AuthContext);

@@ -11,7 +11,7 @@ function Exam() {
 
   const [deptexams, setDeptExams] = useState('');
 
-  const singleExam = `http://127.0.0.1:8000/school/exam_questions/${parseInt(id)}`;
+  const singleExam = `https://school-management-system-backend-u6m8.onrender.com/school/exam_questions/${parseInt(id)}`;
 console.log(singleExam)
   const fetchSingle = async () => {
     try {

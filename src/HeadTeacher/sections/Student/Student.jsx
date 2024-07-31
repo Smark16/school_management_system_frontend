@@ -50,7 +50,7 @@ function StudentManagement() {
     setUpdate(true);
     setDisplay(false);
     try {
-      const response = await axios(`http://127.0.0.1:8000/school/retrieve_student/${id}`);
+      const response = await axios(`https://school-management-system-backend-u6m8.onrender.com/school/retrieve_student/${id}`);
       const data = response.data;
       setOldStudent(data);
     } catch (err) {
@@ -60,7 +60,7 @@ function StudentManagement() {
 
   const handleDelete = async (id) => {
     try {
-      const deleteUrl = `http://127.0.0.1:8000/school/delete_user/${id}/`;
+      const deleteUrl = `https://school-management-system-backend-u6m8.onrender.com/school/delete_user/${id}/`;
       await axiosInstance.delete(deleteUrl);
       const remained = students.filter(student => student.user !== id);
       showSuccessAlert("Student Deleted Sucesfully")
@@ -115,7 +115,7 @@ function StudentManagement() {
     formdata.append("year_of_enrollment", oldStudent.year_of_enrollment);
 
     try {
-      const response = await axios.put(`http://127.0.0.1:8000/school/update_student/${oldStudent.id}`, formdata);
+      const response = await axios.put(`https://school-management-system-backend-u6m8.onrender.com/school/update_student/${oldStudent.id}`, formdata);
 
       if(response.status === 200){
         showSuccessAlert("Updated Successfully")

@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '@/Context/AuthContext';
 
-const new_resultUrl = 'http://127.0.0.1:8000/school/new_results'
-const examUrl = 'http://127.0.0.1:8000/school/exams'
+const new_resultUrl = 'https://school-management-system-backend-u6m8.onrender.com/school/new_results'
+const examUrl = 'https://school-management-system-backend-u6m8.onrender.com/school/exams'
 
 import axios from 'axios'
 import './student.css';

@@ -12,7 +12,7 @@ const Results = () => {
   const [loading, setLoading] = useState(false);
 
   const fetchResults = async (studentId) => {
-    const studentresults = `http://127.0.0.1:8000/school/student_results/${studentId}`;
+    const studentresults = `https://school-management-system-backend-u6m8.onrender.com/school/student_results/${studentId}`;
     try {
       setLoading(true);
       const response = await axios.get(studentresults);

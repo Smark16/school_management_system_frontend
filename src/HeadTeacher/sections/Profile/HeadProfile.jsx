@@ -6,13 +6,13 @@ import Swal from 'sweetalert2';
 import UseAxios from '@/components/UseAxios';
 import './head.css';
 
-const changePassword = 'http://127.0.0.1:8000/school/change-password/';
+const changePassword = 'https://school-management-system-backend-u6m8.onrender.com/school/change-password/';
 
 function HeadProfile() {
   const { user } = useContext(AuthContext);
   const axiosInstance = UseAxios();
-  const headTeacher = `http://127.0.0.1:8000/school/get_user/${user.user_id}`;
-  const head = `http://127.0.0.1:8000/school/update_user/${user.user_id}`;
+  const headTeacher = `https://school-management-system-backend-u6m8.onrender.com/school/get_user/${user.user_id}`;
+  const head = `https://school-management-system-backend-u6m8.onrender.com/school/update_user/${user.user_id}`;
   const [loggedUser, setLoggedUser] = useState({ username: "", email: "" });
   const [status, setStatus] = useState('');
   const [oldPassword, setOldPassword] = useState('');

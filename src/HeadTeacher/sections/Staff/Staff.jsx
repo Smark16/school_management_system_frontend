@@ -55,7 +55,7 @@ console.log(dept_id)
     if (dept_id) {
       try {
         setLoading(true);
-        const response = await axios.get(`http://127.0.0.1:8000/school/teacher_by_department/${dept_id}`);
+        const response = await axios.get(`https://school-management-system-backend-u6m8.onrender.com/school/teacher_by_department/${dept_id}`);
         setTeacherDepts(response.data);
       } catch (err) {
         console.error(err);
@@ -83,7 +83,7 @@ console.log(dept_id)
     setUpdate(true);
     setDisplay(false);
     try {
-      const response = await axios.get(`http://127.0.0.1:8000/school/retrieve_teacher/${id}`);
+      const response = await axios.get(`https://school-management-system-backend-u6m8.onrender.com/school/retrieve_teacher/${id}`);
       const data = response.data;
       setOldTeacher(data);
     } catch (err) {
@@ -93,7 +93,7 @@ console.log(dept_id)
 
   const handleDelete = async (id) => {
     try {
-      const deleteUrl = `http://127.0.0.1:8000/school/delete_user/${id}/`;
+      const deleteUrl = `https://school-management-system-backend-u6m8.onrender.com/school/delete_user/${id}/`;
       await axiosInstance.delete(deleteUrl);
       const remained = teacherDepts.filter(teacher => teacher.user !== id);
       showSuccessAlert("Deleted Successfully!!")
@@ -152,7 +152,7 @@ console.log(dept_id)
       user
     };
     try {
-      const response  = await axiosInstance.put(`http://127.0.0.1:8000/school/update_teacher/${oldTeacher.id}`, teacherData);
+      const response  = await axiosInstance.put(`https://school-management-system-backend-u6m8.onrender.com/school/update_teacher/${oldTeacher.id}`, teacherData);
       if(response.status === 200){
         showSuccessAlert("Updated Successfully")
       }

@@ -25,7 +25,7 @@ function Performance() {
 
   useEffect(() => {
     if (deptID) {
-      const DepartmentResultUrl = `http://127.0.0.1:8000/school/department_results/${deptID}`;
+      const DepartmentResultUrl = `https://school-management-system-backend-u6m8.onrender.com/school/department_results/${deptID}`;
       const fetchData = async () => {
         try {
           const response = await axios.get(DepartmentResultUrl);

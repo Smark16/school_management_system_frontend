@@ -5,7 +5,7 @@ import axios from 'axios';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
-const sessionUrl = 'http://127.0.0.1:8000/school/exam_session';
+const sessionUrl = 'https://school-management-system-backend-u6m8.onrender.com/school/exam_session';
 
 function Report() {
   const { loggedStudent } = useCustomHook();
@@ -14,7 +14,7 @@ function Report() {
   const [loading, setLoading] = useState(false);
 
   const fetchReport = async (studentId) => {
-    const studentResultsUrl = `http://127.0.0.1:8000/school/get_report/${studentId}`;
+    const studentResultsUrl = `https://school-management-system-backend-u6m8.onrender.com/school/get_report/${studentId}`;
     try {
       setLoading(true);
       const response = await axios.get(studentResultsUrl);

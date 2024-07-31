@@ -3,7 +3,7 @@ import axios from 'axios';
 import { AuthContext } from '@/Context/AuthContext';
 import nofiles from './img/nofiles.png';
 
-const downloadEndpoint = 'http://127.0.0.1:8000/school/download_file';
+const downloadEndpoint = 'https://school-management-system-backend-u6m8.onrender.com/school/download_file';
 
 function ViewFiles() {
   const { user, teachers } = useContext(AuthContext);
@@ -22,7 +22,7 @@ function ViewFiles() {
 
   useEffect(() => {
     if (deptID) {
-      const deptFiles = `http://127.0.0.1:8000/school/department_files/${deptID}`;
+      const deptFiles = `https://school-management-system-backend-u6m8.onrender.com/school/department_files/${deptID}`;
 
       const fetchFiles = async () => {
         try {

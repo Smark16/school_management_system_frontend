@@ -38,8 +38,8 @@ function Dashboard() {
 
   useEffect(() => {
     if (deptID) {
-      const DepartmentResultUrl = `http://127.0.0.1:8000/school/department_results/${deptID}`;
-      const examCountUrl = `http://127.0.0.1:8000/school/exam_department_count/${deptID}`
+      const DepartmentResultUrl = `https://school-management-system-backend-u6m8.onrender.com/school/department_results/${deptID}`;
+      const examCountUrl = `https://school-management-system-backend-u6m8.onrender.com/school/exam_department_count/${deptID}`
 
       const fetchData = async () => {
         try {

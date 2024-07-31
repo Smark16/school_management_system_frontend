@@ -9,8 +9,8 @@ import { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '@/Context/AuthContext';
 import './exam.css';
 
-const postQuestionsUrl = 'http://127.0.0.1:8000/school/post_questions';
-const editQuestionUrl = 'http://127.0.0.1:8000/school/edit_question';
+const postQuestionsUrl = 'https://school-management-system-backend-u6m8.onrender.com/school/post_questions';
+const editQuestionUrl = 'https://school-management-system-backend-u6m8.onrender.com/school/edit_question';
 
 function SetExams() {
   const { user, teachers } = useContext(AuthContext);
@@ -115,7 +115,7 @@ function SetExams() {
 
   const handleDelete = id => {
     axios
-      .delete(`http://127.0.0.1:8000/school/delete_question/${id}`)
+      .delete(`https://school-management-system-backend-u6m8.onrender.com/school/delete_question/${id}`)
       .then(response => {
         if (response.status === 204) {
           showSuccessAlert('Question Deleted Successfully');

@@ -5,15 +5,15 @@ import Swal from 'sweetalert2';
 import axios from 'axios';
 import '@/components/nav.css';
 
-const loginurl = 'http://127.0.0.1:8000/school/';
-const Student_registerurl = 'http://127.0.0.1:8000/school/student_register';
-const teacher_registerUrl = 'http://127.0.0.1:8000/school/teacher_register';
-const submissionUrl = 'http://127.0.0.1:8000/school/exams';
-const teacherUrl = 'http://127.0.0.1:8000/school/teachers';
-const studentsUrl = 'http://127.0.0.1:8000/school/students';
-const departmentsUrl = 'http://127.0.0.1:8000/school/departments';
-const examUrl = 'http://127.0.0.1:8000/school/exams';
-const eventsUrl = 'http://127.0.0.1:8000/school/upcoming_events';
+const loginurl = 'https://school-management-system-backend-u6m8.onrender.com/school/';
+const Student_registerurl = 'https://school-management-system-backend-u6m8.onrender.com/school/student_register';
+const teacher_registerUrl = 'https://school-management-system-backend-u6m8.onrender.com/school/teacher_register';
+const submissionUrl = 'https://school-management-system-backend-u6m8.onrender.com/school/exams';
+const teacherUrl = 'https://school-management-system-backend-u6m8.onrender.com/school/teachers';
+const studentsUrl = 'https://school-management-system-backend-u6m8.onrender.com/school/students';
+const departmentsUrl = 'https://school-management-system-backend-u6m8.onrender.com/school/departments';
+const examUrl = 'https://school-management-system-backend-u6m8.onrender.com/school/exams';
+const eventsUrl = 'https://school-management-system-backend-u6m8.onrender.com/school/upcoming_events';
 
 export const AuthContext = createContext();
 

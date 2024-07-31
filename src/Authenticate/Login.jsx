@@ -32,12 +32,18 @@ function Login() {
 
   return (
     <div className="container-xxl mt-5">
+     
       <div className="authentication-wrapper authentication-basic container-p-y">
         <div className="authentication-inner">
           <div className="card">
             <div className="card-body">
               {/* Logo */}
+              <p className='alert alert-info'>NOTE: Login in as headteacher so that you can register students and teachers then view there dashboard(
+        "headteacher_username" = "headmaster123@mail.",
+         "headteacher_password" = "head@12345",
+        )</p>
               <div className="app-brand justify-content-center">
+            
                 <a href="index.html" className="app-brand-link gap-2">
                   <span className="app-brand-text demo text-body fw-bolder">
                     KAMPALA INFANT SCHOOL

@@ -127,7 +127,7 @@ function StudentDashboard() {
       <div className="metrics">
         <div className="metric-card">
           <div className="img">
-            <img src={student} alt="student" />
+            <img src={student} alt="student" className='studImgDetails'/>
           </div>
           <div className="words">
             <h5>Students</h5>
@@ -137,7 +137,7 @@ function StudentDashboard() {
 
         <div className="metric-card">
           <div className="img">
-            <img src={assignment} alt="assignments" />
+            <img src={assignment} alt="assignments" className='studImgDetails'/>
           </div>
           <div className="words">
             <h5>Total Assignments</h5>
@@ -147,7 +147,7 @@ function StudentDashboard() {
 
         <div className="metric-card">
           <div className="img">
-            <img src={teacher} alt="teachers" />
+            <img src={teacher} alt="teachers" className='studImgDetails'/>
           </div>
           <div className="words">
             <h5>Teachers</h5>
@@ -157,7 +157,7 @@ function StudentDashboard() {
 
         <div className="metric-card">
           <div className="img">
-            <img src={submitted} alt="courses" />
+            <img src={submitted} alt="courses" className='studImgDetails'/>
           </div>
           <div className="words">
             <h5>Courses</h5>

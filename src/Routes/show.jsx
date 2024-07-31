@@ -43,8 +43,7 @@ import StudentManagement from "@/HeadTeacher/sections/Student/Student";
 import HeadReport from "@/HeadTeacher/sections/Reports/Report";
 import HeadLogout from "@/HeadTeacher/sections/Logout";
 import HeadProfile from "@/HeadTeacher/sections/Profile/HeadProfile";
-import { Import } from "lucide-react";
-// import Index from "@/Welcome/course-master";
+import Index from "@/Welcome/course-master";
 
 export default function Show() {
   const { display } = useContext(AuthContext);
@@ -57,14 +56,14 @@ export default function Show() {
         {/* Public routes */}
         <Route path='/login' element={<Login />} />
         <Route path='/' element={<Home />} />
-        {/* <Route path="/index" element={<Index/>}/> */}
+        <Route path="/index" element={<Index/>}/>
 
         {/* Teacher Routes */}
         <Route path="teacher/*" 
           element={
             <PrivateRoute>
               <div className="main bg-alert secondary">
-                <div className={`page ${display ? '' : 'hidden'}`}>
+                <div className={`page ${display ? 'show' : ''}`}>
                   <Pages />
                 </div>
                 <div className="route">
@@ -92,7 +91,7 @@ export default function Show() {
           element={
             <PrivateRoute>
               <div className="main bg-alert secondary">
-                <div className={`page ${display ? '' : 'hidden'}`}>
+                <div className={`pages ${display ? 'come' : ''}`}>
                   <StudentPages />
                 </div>
                 <div className="route">

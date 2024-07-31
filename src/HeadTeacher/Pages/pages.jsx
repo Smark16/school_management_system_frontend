@@ -38,9 +38,9 @@ function Headpages() {
           <li className={location.pathname === '/headTeacher/event' ? 'active' : ''}>
             <Link to='/headTeacher/event'>Event Management</Link>
           </li>
-          <li className={location.pathname === '/headTeacher/reports' ? 'active' : ''}>
+          {/* <li className={location.pathname === '/headTeacher/reports' ? 'active' : ''}>
             <Link to='/headTeacher/reports'>Reports</Link>
-          </li>
+          </li> */}
         </ul>
       </div>
       {isMenuOpen && <div className="overlay" onClick={toggleMenu}></div>}

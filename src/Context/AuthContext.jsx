@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import {jwtDecode} from 'jwt-decode';
 import Swal from 'sweetalert2';
 import axios from 'axios';
-import '@/components/nav.css'
+import '@/components/nav.css';
 
 const loginurl = 'http://127.0.0.1:8000/school/';
 const Student_registerurl = 'http://127.0.0.1:8000/school/student_register';
@@ -39,7 +39,9 @@ export const AuthProvider = ({ children }) => {
   const [events, setEvents] = useState([]);
   const [passwordError, setPasswordError] = useState([]);
   const [usernameError, setUsernameError] = useState([]);
-  const [studentNoError, setStudentNoError] = useState([])
+  const [studentNoError, setStudentNoError] = useState([]);
+  const [justLoggedIn, setJustLoggedIn] = useState(false);
+  const [noActiveAccount, setNoActiveAccount] = useState('')
 
   const navigate = useNavigate();
 
@@ -56,6 +58,7 @@ export const AuthProvider = ({ children }) => {
         const data = response.data;
         setAuthTokens(data);
         setUser(jwtDecode(data.access));
+        setJustLoggedIn(true);
         const checkMember = jwtDecode(data.access);
         const decodedStaff = checkMember.is_teacher;
         const decodedStudent = checkMember.is_student;
@@ -71,7 +74,10 @@ export const AuthProvider = ({ children }) => {
       }
     } catch (err) {
       console.log('Error', err);
-      showErrorAlert('There was a server issue');
+      showErrorAlert('Please provide correct username/password');
+      if(err.response.data.detail){
+        setNoActiveAccount(err.response.data.detail)
+      }
     }
   };
 
@@ -86,7 +92,7 @@ export const AuthProvider = ({ children }) => {
         dob,
         year_of_enrollment
       });
-      console.log(response)
+      console.log(response);
       if (response.status === 201) {
         showSuccessAlert('Registration successful');
       } else {
@@ -100,8 +106,8 @@ export const AuthProvider = ({ children }) => {
         if (error.response.data.username) {
           setUsernameError(error.response.data.username);
         }
-        if(error.response.data.student_no){
-          setStudentNoError(error.response.data.student_no)
+        if (error.response.data.student_no) {
+          setStudentNoError(error.response.data.student_no);
         }
 
         showErrorAlert('There was a server issue');
@@ -115,9 +121,9 @@ export const AuthProvider = ({ children }) => {
         name,
         department,
         email,
-        password
+        password,
       });
-      console.log(response)
+      // console.log(response);
       if (response.status === 201) {
         showSuccessAlert('Registration successful');
       } else {
@@ -251,16 +257,22 @@ export const AuthProvider = ({ children }) => {
       setStaff(decodedUser.is_teacher);
       setStudent(decodedUser.is_student);
       setHead(decodedUser.is_headteacher);
-      if (decodedUser.is_teacher) {
-        navigate('/teacher/dashboard');
-      } else if (decodedUser.is_student) {
-        navigate('/student/dashboard');
-      } else if (decodedUser.is_headteacher) {
-        navigate('/headTeacher/dashboard');
+      if (justLoggedIn) {
+        if (decodedUser.is_teacher) {
+          navigate('/teacher/dashboard');
+          setStaff(true)
+        } else if (decodedUser.is_student) {
+          navigate('/student/dashboard');
+          setStudent(true)
+        } else if (decodedUser.is_headteacher) {
+          navigate('/headTeacher/dashboard');
+          setHead(true)
+        }
+        setJustLoggedIn(false);
       }
     }
     setLoading(false);
-  }, [authTokens]);
+  }, [authTokens, justLoggedIn]);
 
   const handleQuestions = (id) => {
     const submission = submissions.find((sub) => sub.id === id);
@@ -305,10 +317,13 @@ export const AuthProvider = ({ children }) => {
     passwordError,
     studentNoError,
     registerUser,
-    registerTeacher
+    registerTeacher,
+    noActiveAccount
   };
 
-  return <AuthContext.Provider value={contextData}>
-  {loading ? null : children}
+  return (
+    <AuthContext.Provider value={contextData}>
+      {loading ? null : children}
     </AuthContext.Provider>
+  );
 };

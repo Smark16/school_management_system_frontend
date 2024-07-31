@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { AuthContext } from '../Context/AuthContext';
 
 function Login() {
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser,noActiveAccount } = useContext(AuthContext);
   const [credentials, setCredentials] = useState({ username: "", password: "" });
   const [loader, setLoader] = useState(false)
 
@@ -51,6 +51,7 @@ function Login() {
               </p>
               <form id="formAuthentication" className="mb-3"  onSubmit={handleSubmit}>
                 <div className="mb-3">
+                 {noActiveAccount && (<p className='alert alert-danger'>{noActiveAccount}</p>)} 
                   <label htmlFor="email" className="form-label">
                     Email or Username
                   </label>

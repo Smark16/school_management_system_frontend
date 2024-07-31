@@ -43,7 +43,7 @@ console.log(submissions)
       $('#myTable').DataTable();
     }
   }, [filteredSubmissions]);
-
+console.log(filteredSubmissions)
 
   return (
   

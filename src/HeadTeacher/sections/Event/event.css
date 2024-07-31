@@ -6,12 +6,16 @@
   margin: 0 auto;
   padding: 20px;
   background-color: #f9f9f9;
+  border: 1px solid #ddd;
 }
 
 .add-event form {
   width: 100%;
 }
-
+.eventImg{
+  width: 200px;
+  height: 200px;
+}
 .add-event .col-form-label {
   font-weight: lighter;
   font-size: small;
@@ -31,6 +35,7 @@
 .header h1 {
   font-size: 2.5em;
   color: #333;
+  margin-left: -440px;
 }
 
 .header p {
@@ -215,4 +220,18 @@ form button:hover {
   display: flex;
   gap: 3px;
   align-items:center;
+}
+
+@media screen and (max-width:768px) {
+  .header h1{
+    margin: 15px auto;
+  }
+  .toolbar{
+    width: 100%;
+    overflow-x: scroll;
+  }
+  .upcoming-events{
+    overflow-x: scroll;
+    width: 100%;
+  }
 }

@@ -61,6 +61,7 @@ function Event() {
       reader.onload = (event) => {
         const img = document.createElement('img');
         img.src = event.target.result;
+        img.classList.add("eventImg")
         img.style.maxWidth = '100%';
         editorRef.current.appendChild(img);
       };
@@ -195,7 +196,7 @@ function Event() {
   return (
     <div className="event_container">
       <header className="header">
-        <h1 className='text-primary'>Manage Events</h1>
+        <h1 className='text-primary text-center'>Manage Events</h1>
       </header>
 
       <section className="add-event">

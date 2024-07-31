@@ -5,6 +5,7 @@ import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import useCustomHook from '../customHook';
 
+
 const Results = () => {
   const { loggedStudent } = useCustomHook();
   const [sessionResults, setSessionResults] = useState([]);
@@ -22,8 +23,7 @@ const Results = () => {
       setLoading(false);
     }
   };
-  console.log(sessionResults)
-
+  
  
   useEffect(() => {
     if (loggedStudent) {

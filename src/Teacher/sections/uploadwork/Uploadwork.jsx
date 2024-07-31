@@ -12,25 +12,25 @@ const downloadEndpoint = 'http://127.0.0.1:8000/school/download_file';
 const uploadUrl = 'http://127.0.0.1:8000/school/upload_file';
 
 function Uploadwork() {
-  const { teachers, user, setFileName,} = useContext(AuthContext);
-  const [fileDetails, setFileDetails] = useState('')
-  const [LearningMaterial, setLearningMaterial] = useState({ name: "", description: "", file: null, week:"" });
+  const { teachers, user, setFileName } = useContext(AuthContext);
+  const [fileDetails, setFileDetails] = useState('');
+  const [LearningMaterial, setLearningMaterial] = useState({ name: "", description: "", file: null, week: "" });
   const [uploadProgress, setUploadProgress] = useState(0);
   const [fileId, setFileId] = useState(''); // Track the file ID
   const [fileUrl, setFileUrl] = useState('');
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const loggedinTeacher = teachers.find(teacher => teacher.user === user.user_id);
-  const departmentId = loggedinTeacher.department.id;
+  const departmentId = loggedinTeacher ? loggedinTeacher.department.id : null; // Ensure departmentId is only set if loggedinTeacher is found
 
-  const handleChange = async(e) => {
+  const handleChange = async (e) => {
     const { name, value } = e.target;
     setLearningMaterial({ ...LearningMaterial, [name]: value });
   };
 
   const handleFileChange = async (e) => {
     const selectedFile = e.target.files[0];
-    setFileName(selectedFile.name)
+    setFileName(selectedFile.name);
     if (selectedFile) {
       setFileDetails(selectedFile);
       setUploadProgress(0); // Reset the progress bar
@@ -51,12 +51,11 @@ function Uploadwork() {
           },
         });
 
-        if(response.status === 201){
+        if (response.status === 201) {
           setFileId(response.data.file_id);
-          setFileUrl(response.data.file_url) 
-        }
+          setFileUrl(response.data.file_url);
           setLearningMaterial({ ...LearningMaterial, file: parseInt(response.data.file_id) });
-        
+        }
       } catch (error) {
         console.error('There was an error uploading the file!', error);
       }
@@ -70,7 +69,7 @@ function Uploadwork() {
     formData.append('description', LearningMaterial.description);
     formData.append('file', LearningMaterial.file);
     formData.append('department', departmentId);
-    formData.append('week', LearningMaterial.week)
+    formData.append('week', LearningMaterial.week);
 
     try {
       const response = await axios.post(postwork, formData, {
@@ -78,14 +77,13 @@ function Uploadwork() {
           'Content-Type': 'multipart/form-data',
         },
       });
-  
+
       if (response.data.id) {
         setFileId(response.data.id); // Set the file ID
         showSuccessAlert("File Uploaded");
         resetForm();
-        navigate('/teacher/view_uploaded_files')
+        navigate('/teacher/view_uploaded_files');
       }
-
     } catch (error) {
       console.error('There was an error submitting the form!', error);
     }
@@ -100,15 +98,15 @@ function Uploadwork() {
   };
 
   const resetForm = () => {
-    setLearningMaterial({ name: "", description: "", file: null });
-    setFileDetails('')
+    setLearningMaterial({ name: "", description: "", file: null, week: "" });
+    setFileDetails('');
     setUploadProgress(0);
   };
 
- 
-  const handleView = ()=>{
-   navigate('/teacher/view_uploaded_files')
-  }
+  const handleView = () => {
+    navigate('/teacher/view_uploaded_files');
+  };
+
   return (
     <>
       <h2 className='text-center'>Upload Course Materials From Here</h2>
@@ -176,17 +174,16 @@ function Uploadwork() {
                 <li className="file-name">
                   <a href={fileUrl} className='reduce_letter'>{fileDetails.name}</a>
                   <div className="progress-bar p-2" style={{ width: `${uploadProgress}%` }}>
-                      {uploadProgress}%
+                    {uploadProgress}%
                   </div>
                 </li>
               </ul>
             ) : (
-              <img src={upload} alt='file_upload' />
+              <img src={upload} alt='file_upload' className='material_img'/>
             )}
           </div>
           <p>Allowed Files (.pdf, .docx, .zip)</p>
         </div>
-
 
         <Button type='submit'>Submit_Work</Button>
       </form>

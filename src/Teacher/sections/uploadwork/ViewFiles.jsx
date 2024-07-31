@@ -77,8 +77,8 @@ function ViewFiles() {
     <>
       {files.length === 0 ? (
         <>
-          <h5>No Uploaded Files</h5>
-          <img src={nofiles} alt='No files' />
+          <h5 className='text-center'>No Uploaded Files</h5>
+          <img src={nofiles} alt='No files' className='no_files'/>
         </>
       ) : (
         <>

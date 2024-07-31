@@ -209,7 +209,7 @@ function SetExams() {
                     accept='image/*'
                     onChange={handleInsert}
                   />
-                  <div>
+                  <div className='exam_img_div'>
                     <img
                       src={questions.image instanceof File ? URL.createObjectURL(questions.image) : questions.image}
                       className="insertImage"

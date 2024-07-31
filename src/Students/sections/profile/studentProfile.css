@@ -22,7 +22,7 @@ h4 {
 }
 
 /* Profile Image */
-.row img {
+.row .profile_img {
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -94,7 +94,6 @@ form .row label {
   color: #333;
   width: 100%;
 }
-
 form .form-control {
   border: 1px solid #ddd;
   border-radius: 4px;

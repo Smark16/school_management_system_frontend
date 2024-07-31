@@ -129,7 +129,7 @@ function Profile() {
         <div className="row studProfile">
           <div className="col-md-4 col-sm-12">
           <div className="pmage">
-          <img src={image} alt="Profile" />
+          <img src={image} alt="Profile" className='profile_img'/>
         </div>
         <ul>
             <li>

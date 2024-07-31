@@ -189,7 +189,7 @@ function Dashboard() {
         <div className="metrics">
         <div className="students">
           <div className="img">
-            <img src={student} alt="student" />
+            <img src={student} alt="student" className='studImg'/>
           </div>
           <div className="words">
             <h5>Students</h5>
@@ -199,7 +199,7 @@ function Dashboard() {
 
         <div className="students">
           <div className="img">
-            <img src={teacher} alt="teacher" />
+            <img src={teacher} alt="teacher" className='studImg'/>
           </div>
           <div className="words">
             <h5>Not Submitted</h5>
@@ -209,7 +209,7 @@ function Dashboard() {
 
         <div className="students">
           <div className="img">
-            <img src={assignments} alt="assignments" />
+            <img src={assignments} alt="assignments" className='studImg'/>
           </div>
           <div className="words">
             <h5>Assignments Given</h5>
@@ -219,7 +219,7 @@ function Dashboard() {
 
         <div className="students">
           <div className="img">
-            <img src={submittedImage} alt="student" />
+            <img src={submittedImage} alt="student" className='studImg'/>
           </div>
           <div className="words">
             <h5>Submissions</h5>

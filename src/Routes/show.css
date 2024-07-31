@@ -9,8 +9,29 @@
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
     width: 250px;
+    transition: left 0.3s;
+}
+.page.show{
+    left: -5px;
+}
+.page{
+    left: -250px;
 }
 
+/* student */
+.pages {
+    color: white;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    width: 250px;
+    transition: left 0.3s;
+}
+.pages.come{
+    left: -5px;
+}
+.pages{
+    left: -250px;
+}
 .route {
     flex: 1;
     background-color: #f8f9fa; 
@@ -24,9 +45,15 @@
         position: relative;
         display: flex;
     }
-    .page {
+    .page, .pages {
         position: absolute;
         z-index: 100;
         height: 100%;  
+    }
+    .page.show, .pages.come{
+        left: -250px;
+    }
+    .page, .pages{
+        left: 0;
     }
 }

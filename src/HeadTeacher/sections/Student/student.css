@@ -1,12 +1,12 @@
-.add_student{
+.add_students{
     position: absolute;
     right: 0;
-    top: 125px;
+    top: -40px;
 }
 
 .student_register_form form {
     position: absolute;
-    top: 70%;
+    top: -250px;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
@@ -34,11 +34,10 @@
   
   .edit_registered_student form{
     position: absolute;
-    top: 60%;
+    top: -370px;;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
-    border: 1px solid #ddd;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
     padding: 20px;
     background: #fff;
@@ -46,6 +45,7 @@
     visibility: hidden;
     transition: all 0.3s ease-in-out;
     width: 500px;
+  
   }
   .edit_registered_student form.activated{
     opacity: 1;
@@ -64,11 +64,10 @@
   }
   
   @media screen and (max-width:768px) {
-    .add_student{
-      width: 0px;
+    .add_students{
+      width: 10px;
       white-space: nowrap;
-      position: absolute;
-      top: 60px;
+  margin-top: 20px;  
     }
     .bong{
       margin-top: 70px;
@@ -79,8 +78,6 @@
    
     .student_register_form form {
       position: absolute;
-      top: 60%;
-      left: 50%;
       transform: translate(-50%, -50%);
       z-index: 10;
       border: 1px solid #ddd;
@@ -90,6 +87,12 @@
       opacity: 0;
       visibility: hidden;
       transition: all 0.3s ease-in-out;
-      width: 400px;
+      width:100%;
+    }
+    .add_students p{
+      display: none;
+    }
+    .edit_registered_student form{
+      width: 100%;
     }
   }

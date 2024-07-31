@@ -143,7 +143,7 @@ function StudentManagement() {
     <div className='bong'>
 
       <h4 className='text-center mt-5'>MANAGE STUDENTS HERE</h4>
-      <button className="btn btn-primary text-center text-white mt-2 add_student" onClick={AddForm}>
+      <button className="btn btn-primary text-center text-white add_students" onClick={AddForm}>
         <i className="bi bi-plus-square"></i> <p className='text-white'>Add Student</p>
       </button>
       {students.length === 0 ? (<>

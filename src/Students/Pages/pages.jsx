@@ -6,7 +6,6 @@ import './pages.css';
 
 function StudentPages() {
   const {departments} = useContext(AuthContext)
-  console.log(departments)
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [dropped, setDropped] = useState(false)
 

@@ -143,7 +143,7 @@ function ExamQtn() {
       const response = await axios.put(updateExam, formData);
       console.log(response);
       localStorage.removeItem(`timeLeft_${id}`);
-      navigate('/path-to-next-page'); // Navigate to the next page after successful submission
+      navigate('/student/dashboard'); // Navigate to the next page after successful submission
     } catch (err) {
       console.error('Error submitting the exam', err);
     }

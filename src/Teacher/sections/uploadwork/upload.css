@@ -117,7 +117,7 @@
     position: relative;
   }
   
-  .file_upload img {
+  .file_upload .material_img {
     width: 100px;
     height: 100px;
     border-radius: 10px;
@@ -204,7 +204,11 @@
       -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
     }
   }
-
+.no_files{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
   .upload_btn{
     position: absolute;
     top: 85px;
@@ -220,5 +224,9 @@
       overflow-x: scroll;
       border: 1px solid #ddd;
       width: 100%;
+    }
+    .no_files{
+      width:200px;
+      margin-left:30px;
     }
   }

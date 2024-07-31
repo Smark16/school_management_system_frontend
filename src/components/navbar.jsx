@@ -17,7 +17,7 @@ import './nav.css'
 
 export default function Navbar() {
   const [anchorEl, setAnchorEl] = useState(null);
-  const {user, staff, student, head, handleDisplay, authTokens} = useContext(AuthContext)
+  const {user, staff, student, head, handleDisplay} = useContext(AuthContext)
 
 
   const handleMenu = (event) => {

@@ -102,7 +102,7 @@ function HeadProfile() {
       <h4 className='text-center mt-3'>VIEW YOUR PROFILE</h4>
       <div className="row studProfile">
         <div className="col-md-4 col-sm-12 pror">
-          <img src={Profile} alt="Profile" />
+          <img src={Profile} alt="Profile" className='profile_img'/>
           <ul>
             <li>
               <h5>Status: </h5>

@@ -20,7 +20,7 @@
 }
 
 /* Style the management heading */
-.manage h4 {
+h4 {
   text-align: center;
   margin-right: 20px;
   font-size: 1.5rem;
@@ -28,8 +28,8 @@
 }
 
 /* Style the "Add Teacher" button */
-.manage button {
-  margin-left: 20px;
+/* .manage .add_student {
+  
   padding: 10px 20px;
   font-size: 1em;
   border-radius: 5px;
@@ -38,9 +38,16 @@
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
+  border: 2px solid red;
+} */
+ .add_student{
+  position: absolute;
+  right: 0;
+  top: -20px;
 
-.manage button:hover {
+ }
+
+.manage .add_student:hover {
   background-color: #003f8a;
 }
 
@@ -65,7 +72,7 @@
 /* Style the form */
 .teacher_register_form form {
   position: absolute;
-  top: 50%;
+  top: -370px;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
@@ -116,7 +123,7 @@
 /* updating form */
 .edit_registered_teacher form{
   position: absolute;
-  top: 60%;
+  top: -300px;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
@@ -151,12 +158,20 @@
 }
 @media screen and (max-width:768px) {
   .teacher_register_form form{
-    width: 400px;
+    width:100%;
   }
   .edit_registered_teacher form{
-    width: 400px;
+    width: 100%;
+  }
+  .show_dept{
+    overflow-x: scroll;
   }
   .add_student p{
     display: none;
+  }
+  .add_student{
+    width: 10px;
+    white-space: nowrap;
+margin-top: 20px;  
   }
 }

@@ -180,7 +180,7 @@ console.log(dept_id)
   return (
     <div className='bong'>
       <h4 className="mt-3 text-center">MANAGE STAFF FROM HERE</h4>
-      <button className="btn btn-primary text-center text-white mt-2 add_student" onClick={AddForm}>
+      <button className="btn btn-primary text-center text-white add_student" onClick={AddForm}>
         <i className="bi bi-plus-square"></i> <p className='text-white'>Add Teacher</p>
       </button>
 

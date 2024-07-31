@@ -14,8 +14,6 @@ body {
   width: 250px;
   height: 100vh;
   position: fixed;
-  top: 0;
-  left: 0;
   z-index: 10;
   display: flex;
   flex-direction: column;
@@ -28,7 +26,6 @@ body {
   list-style: none;
   padding: 0 15px;
   margin-top: 60px;
-  
 }
 
 .sidelist ul li {
@@ -113,6 +110,19 @@ body {
 }
 .submenu p:hover{
   color:#00aaff;
+}
+.page {
+  color: white;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  width: 250px;
+  transition: left 0.3s;
+}
+.page.show{
+  left: -5px;
+}
+.page{
+  left: -250px;
 }
 
 

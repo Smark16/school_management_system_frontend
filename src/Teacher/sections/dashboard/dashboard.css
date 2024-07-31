@@ -24,7 +24,7 @@
   transition: all 0.3s ease; /* Smooth transition for hover effects */
 }
 
-.students .img img {
+.students .studImg {
   width: 80px; /* Larger images */
   height: 80px;
   margin-bottom: 10px; /* Add margin below image */
@@ -143,5 +143,10 @@
 
   .col_metrics, .col_calendar {
     width: 100%;
+  }
+  .mixed-chart{
+    width: 100%;
+  
+    overflow-x: scroll;
   }
 }

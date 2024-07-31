@@ -75,12 +75,12 @@ div
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-ul
+.main_nav_list
 {
 	list-style: none;
 	margin-bottom: 0px;
 }
-p
+/* p
 {
 	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
@@ -145,7 +145,7 @@ h1, h2, h3, h4, h5, h6
 	-webkit-font-smoothing: antialiased;
 	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
 	text-shadow: rgba(0,0,0,.01) 0 0 1px;
-}
+} */
 /* h1::selection, 
 h2::selection, 
 h3::selection, 
@@ -276,7 +276,7 @@ section
 3. Header
 *********************************/
 
-.header
+.nav_header
 {
 	position: fixed;
 	top: 45px;
@@ -296,11 +296,11 @@ section
 	-o-transition: all 200ms ease;
 	transition: all 200ms ease;
 }
-.header.scrolled
+.nav_header.scrolled
 {	
 	top: 15px;
 }
-.header.scrolled .header_content::before
+.nav_header.scrolled .header_content::before
 {
 	box-shadow: 0px 20px 49px rgba(0,0,0,0.17);
 }
@@ -356,16 +356,16 @@ section
 {
 	margin-top: 7px;
 }
-.main_nav_item
+.main_nav_list .main_nav_item
 {
 	display: inline-block;
 	margin-right: 40px;
 }
-.main_nav_item:last-child
+.main_nav_list .main_nav_item:last-child
 {
 	margin-right: 0px;
 }
-.main_nav_item a
+.main_nav_list .main_nav_item a
 {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
@@ -378,7 +378,7 @@ section
 	-o-transition: all 200ms ease;
 	transition: all 200ms ease;
 }
-.main_nav_item a:hover
+.main_nav_list .main_nav_item a:hover
 {
 	color: #ffb606;
 }
@@ -659,7 +659,7 @@ section
 	height: 100%;
 }
 .hero_slide_background {
-	/* background-image: url('../images/slider_background.jpg'); */
+	background: url(../images/slider_background.jpg);
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -793,7 +793,7 @@ section
 {
 	background: #ffb606;
 }
-.hero_box img
+.hero_box .svg
 {
 	width: 62px;
 	height: auto;
@@ -1067,6 +1067,7 @@ section
 	left: 0;
 	width: 100%;
 	height: 100%;
+	background-image: url(../images/search_background.jpg) !important;
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
@@ -1081,11 +1082,11 @@ section
 11.1 Search Form
 *********************************/
 
-.search_form
+/* .search_form
 {
 	margin-top: 57px;
-}
-.input_field
+} */
+/* .input_field
 {
 	width: 100%;
 	height: 42px;
@@ -1104,7 +1105,8 @@ input:last-of-type
 	outline: none !important;
 	border: solid 2px #ffb606;
 }
-.search_submit_button
+	*/
+.search_form .search_submit_button
 {
 	width: 100%;
 	height: 48px;
@@ -1117,6 +1119,7 @@ input:last-of-type
 	border: none;
 	cursor: pointer;
 }
+	
 .search_submit_button:hover
 {
 	box-shadow: 0px 10px 20px rgba(0,0,0,0.2);
@@ -1158,13 +1161,13 @@ input:last-of-type
 	max-width: 100%;
 	margin-bottom: 0px;
 }
-.icon_container
+.icon_container .ser_img
 {
-	height: 41px;
-	width: auto;
+	height: 50px;
+	width: 50px;
 	margin-bottom: 30px;
 }
-.icon_container img
+.icon_container .search_content
 {
 	height: 100%;
 }
@@ -1342,7 +1345,7 @@ input:last-of-type
 {
 
 } */
-.event_image img
+.event_image .img_event
 {
 	width: 100%;
 }
@@ -1389,7 +1392,7 @@ input:last-of-type
 {
 	outline: solid 2px #ffb606;
 }
-.newsletter_submit_btn
+.newsletter_form .newsletter_submit_btn
 {
 	width: 164px;
 	height: 42px;
@@ -1400,7 +1403,7 @@ input:last-of-type
 	font-weight: 500;
 	cursor: pointer;
 }
-.newsletter_submit_btn:focus
+.newsletter_form .newsletter_submit_btn:focus
 {
 	border: solid 2px #FFFFFF;
 }
@@ -1502,4 +1505,32 @@ input:last-of-type
 .footer_social .menu_social_item:last-child
 {
 	margin-right: 0px;
+}
+
+/* small screens */
+@media screen and (max-width:768px) {
+	body, html{
+		width: 100%;
+	}
+	.main_nav_list{
+		display: none;
+	}
+	.logo_container{
+		margin-left: 300px;
+		display: flex;
+		justify-content: center;
+		width: 100%;
+	}
+	.register_section{
+margin: 0 auto;
+		
+		width: 100%;
+		overflow-x: scroll;
+	}
+	.search_section{
+		width: 100%;
+	}
+	.search_content{
+		width: 100%;
+	}
 }

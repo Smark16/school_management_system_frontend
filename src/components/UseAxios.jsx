@@ -3,6 +3,7 @@ import { AuthContext } from '../Context/AuthContext';
 import axios from 'axios';
 import dayjs from 'dayjs';
 import { jwtDecode } from 'jwt-decode';
+import Swal from 'sweetalert2';
 
 const baseURL = 'https://school-management-system-backend-u6m8.onrender.com/school';
 
@@ -33,6 +34,17 @@ const UseAxios = () => {
       return req;
     } catch (error) {
       console.log("Error refreshing token:", error);
+      setAuthTokens(null);
+      setUser(null);
+      localStorage.removeItem('authtokens');
+      Swal.fire({
+        icon: 'success',
+        title: 'Your session has expired',
+        text: 'You have been logged out.',
+        timer:6000,
+        confirmButtonText: 'OK'
+    })
+      window.location.href = '/login';
       return Promise.reject(error);
     }
   });

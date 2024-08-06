@@ -238,7 +238,6 @@ function ExamQtn() {
           </p>
         </div>
       </div>
-
     </div>
   );
 }

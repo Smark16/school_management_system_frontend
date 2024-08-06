@@ -39,7 +39,7 @@ function Login() {
             <div className="card-body">
               {/* Logo */}
               <p className='alert alert-info'>NOTE: Login in as headteacher so that you can register students and teachers then view there dashboard(
-        "headteacher_username" = "headmaster123@mail.",
+        "headteacher_username" = "headmaster@gmail.com",
          "headteacher_password" = "head@12345",
         )</p>
               <div className="app-brand justify-content-center">

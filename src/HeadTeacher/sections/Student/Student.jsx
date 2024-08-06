@@ -29,6 +29,7 @@ function StudentManagement() {
   const [update, setUpdate] = useState(false);
   const [oldStudent, setOldStudent] = useState({});
   const [submitting, setSubmitting] = useState(false)
+  const [deleted, setDeleted] = useState(false)
   const [student, setStudent] = useState({name:"", reg_no:"", student_no:"", password:"", dob:"", year_of_enrollment:new Date().getFullYear()});
 
   const AddForm = () => {
@@ -59,11 +60,17 @@ function StudentManagement() {
   };
 
   const handleDelete = async (id) => {
+    setDeleted(true)
     try {
       const deleteUrl = `https://school-management-system-backend-u6m8.onrender.com/school/delete_user/${id}/`;
-      await axiosInstance.delete(deleteUrl);
+      await axiosInstance.delete(deleteUrl)
+      .then(res => {
+        if(res.status === 204){
+          setDeleted(false)
+          showSuccessAlert("Student Deleted Sucesfully")
+        }
+      })
       const remained = students.filter(student => student.user !== id);
-      showSuccessAlert("Student Deleted Sucesfully")
       setStudents(remained);
     } catch (error) {
       console.error('Error deleting student:', error);
@@ -140,8 +147,8 @@ function StudentManagement() {
     });
   };
   return (
+  <>
     <div className='bong'>
-
       <h4 className='text-center mt-5'>MANAGE STUDENTS HERE</h4>
       <button className="btn btn-primary text-center text-white add_students" onClick={AddForm}>
         <i className="bi bi-plus-square"></i> <p className='text-white'>Add Student</p>
@@ -149,7 +156,8 @@ function StudentManagement() {
       {students.length === 0 ? (<>
        <img src={noStudent} alt='nostudents' className='no_stud_img'></img>
       </>) : (<>
-
+      
+  {deleted ? (<span className='alert alert-warning'>Deleting student in progress wait for few seconds...</span>):''}
       {/* show data */}
       
 <div className='mt-3 table_form'>
@@ -184,7 +192,7 @@ function StudentManagement() {
                           <DropdownMenuSeparator />
                           <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
                             <DropdownMenuRadioItem value="top" onClick={() => handleEdit(id)} className='edit_btn pointer dropdown-item'>Edit Student</DropdownMenuRadioItem>
-                            <DropdownMenuRadioItem value="bottom" onClick={() => handleDelete(user)} className='delete_btn dropdown-item'>Delete Account</DropdownMenuRadioItem>
+                            <DropdownMenuRadioItem value="bottom" onClick={() => handleDelete(user)} className='delete_btn dropdown-item'>{deleted ? 'deleting...' : 'Delete Account'}</DropdownMenuRadioItem>
                           </DropdownMenuRadioGroup>
                         </DropdownMenuContent>
                       </DropdownMenu>
@@ -196,10 +204,96 @@ function StudentManagement() {
   </table>
 </div>
 
-      </>)}
+      </>)}    
+  </div>
+  
+  {/* registration form */}
+<div className="student_register_form mt-5">
+  <form className={display ? 'active' : 'out'} onSubmit={handleSubmit}>
+  <div className="removed">
+            <h5>Register Student</h5>
+            <button type="button" className="close" onClick={() => setDisplay(false)}>
+              &times;
+            </button>
+          </div>
+    <div className="mb-3">
+      <label htmlFor="formGroupExampleInput" className="form-label">Name*</label>
+      <input 
+        type="text" 
+        className="form-control" 
+        id="formGroupExampleInput" 
+        name='name'
+        value={student.name}
+        onChange={handleChange} />
+    </div>
+    <div className="mb-3">
+      <label htmlFor="formGroupExampleInput2" className="form-label bg-primary text-white p-2" onClick={generateRegNo}>Generate Reg_No*</label>
+      <input 
+        type="text" 
+        className="form-control" 
+        id="formGroupExampleInput2" 
+        placeholder="reg no" 
+        name='reg_no'
+        value={student.reg_no}
+        onChange={handleChange} />
+      {usernameError.map((err, index) => (
+        <p className='text-danger' key={index}>{err}</p>
+      ))}
+    </div>
+    <div className="mb-3">
+      <label htmlFor="formGroupExampleInput2" className="form-label">Student_No*</label>
+      <input 
+        type="text" 
+        className="form-control" 
+        id="formGroupExampleInput2" 
+        name='student_no'
+        value={student.student_no}
+        onChange={handleChange} />
+        {studentNoError.map((err, index) => (
+        <p className='text-danger' key={index}>{err}</p>
+      ))}
+    </div>
+    <div className="mb-3">
+      <label htmlFor="formGroupExampleInput2" className="form-label">Year of Enrollment*</label>
+      <input 
+        type="text" 
+        className="form-control" 
+        id="formGroupExampleInput2"
+        name='year_of_enrollment'
+        value={student.year_of_enrollment}
+        onChange={handleChange} />
+    </div>
+    <div className="mb-3">
+      <label htmlFor="formGroupExampleInput2" className="form-label">Date Of Birth*</label>
+      <input 
+        type="date" 
+        className="form-control" 
+        id="formGroupExampleInput2" 
+        name='dob'
+        value={student.dob}
+        onChange={handleChange} />
+    </div>
+    <div className="mb-3">
+      <label htmlFor="formGroupExampleInput2" className="form-label bg-primary text-white p-2" onClick={generatePassword}>Generate Password*</label>
+      <input 
+        type="text" 
+        className="form-control" 
+        id="formGroupExampleInput2" 
+        name='password'
+        value={student.password}
+        onChange={handleChange} />
+      {passwordError.map((err, index) => (
+        <p className='text-danger' key={index}>{err}</p>
+      ))}
+    </div>
+    <button className='text-white text-center bg-primary w-100' type="submit">
+      {submitting ? 'submitting...' : 'submit'}
+      </button>
+  </form>
+</div>
 
       {/* updating form */}
-<div className="edit_registered_student">
+      <div className="edit_registered_student">
   <form className={update ? 'activated' : 'outted'} onSubmit={handleUpdate}>
   <div className="removed">
             <h5>Update Student</h5>
@@ -250,93 +344,7 @@ function StudentManagement() {
     <button className='text-white text-center bg-primary w-100' type='submit'>Update Student</button>
   </form>
 </div>
-    
-    
-{/* registration form */}
-<div className="student_register_form mt-5">
-  <form className={display ? 'active' : 'out'} onSubmit={handleSubmit}>
-  <div className="removed">
-            <h5>Register Student</h5>
-            <button type="button" className="close" onClick={() => setDisplay(false)}>
-              &times;
-            </button>
-          </div>
-    <div className="mb-3">
-      <label htmlFor="formGroupExampleInput" className="form-label">Name*</label>
-      <input 
-        type="text" 
-        className="form-control" 
-        id="formGroupExampleInput" 
-        name='name'
-        value={student.name}
-        onChange={handleChange} />
-    </div>
-    <div className="mb-3">
-      <label htmlFor="formGroupExampleInput2" className="form-label bg-primary text-white p-2" onClick={generateRegNo}>Reg_No*</label>
-      <input 
-        type="text" 
-        className="form-control" 
-        id="formGroupExampleInput2" 
-        placeholder="reg no" 
-        name='reg_no'
-        value={student.reg_no}
-        onChange={handleChange} />
-      {usernameError.map((err, index) => (
-        <p className='text-danger' key={index}>{err}</p>
-      ))}
-    </div>
-    <div className="mb-3">
-      <label htmlFor="formGroupExampleInput2" className="form-label">Student_No*</label>
-      <input 
-        type="text" 
-        className="form-control" 
-        id="formGroupExampleInput2" 
-        name='student_no'
-        value={student.student_no}
-        onChange={handleChange} />
-        {studentNoError.map((err, index) => (
-        <p className='text-danger' key={index}>{err}</p>
-      ))}
-    </div>
-    <div className="mb-3">
-      <label htmlFor="formGroupExampleInput2" className="form-label">Year of Enrollment*</label>
-      <input 
-        type="text" 
-        className="form-control" 
-        id="formGroupExampleInput2"
-        name='year_of_enrollment'
-        value={student.year_of_enrollment}
-        onChange={handleChange} />
-    </div>
-    <div className="mb-3">
-      <label htmlFor="formGroupExampleInput2" className="form-label">Date Of Birth*</label>
-      <input 
-        type="date" 
-        className="form-control" 
-        id="formGroupExampleInput2" 
-        name='dob'
-        value={student.dob}
-        onChange={handleChange} />
-    </div>
-    <div className="mb-3">
-      <label htmlFor="formGroupExampleInput2" className="form-label bg-primary text-white p-2" onClick={generatePassword}>Password*</label>
-      <input 
-        type="text" 
-        className="form-control" 
-        id="formGroupExampleInput2" 
-        name='password'
-        value={student.password}
-        onChange={handleChange} />
-      {passwordError.map((err, index) => (
-        <p className='text-danger' key={index}>{err}</p>
-      ))}
-    </div>
-    <button className='text-white text-center bg-primary w-100' type="submit">
-      {submitting ? 'submitting...' : 'submit'}
-      </button>
-  </form>
-</div>
-  </div>
+  </>
   );
 }
 

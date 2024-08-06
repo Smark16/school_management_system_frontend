@@ -32,6 +32,7 @@ function Staff() {
   const [submitting, setSubmitting] = useState(false);
   const [update, setUpdate] = useState(false);
   const [oldTeacher, setOldTeacher] = useState({});
+  const [deleted, setDeleted] = useState(false)
   const [teacher, setTeacher] = useState({ name: "", department: "", email: "", password: "" });
 
   const AddForm = () => {
@@ -92,11 +93,17 @@ console.log(dept_id)
   };
 
   const handleDelete = async (id) => {
+    setDeleted(true)
     try {
       const deleteUrl = `https://school-management-system-backend-u6m8.onrender.com/school/delete_user/${id}/`;
-      await axiosInstance.delete(deleteUrl);
+      await axiosInstance.delete(deleteUrl)
+      .then(res => {
+        if(res.status === 204){
+          setDeleted(false)
+          showSuccessAlert("Deleted Successfully!!")
+        }
+      })
       const remained = teacherDepts.filter(teacher => teacher.user !== id);
-      showSuccessAlert("Deleted Successfully!!")
       setTeacherDepts(remained);
     } catch (error) {
       console.error('Error deleting teacher:', error);
@@ -193,7 +200,7 @@ console.log(dept_id)
       </ul>
 
      {teacherDepts.length === 0 ? (
-      <div className="dept_img">
+       <div className="dept_img">
         <span className='text-center'>No Teachers</span>
         <img src={noteacher} alt='no teacher'></img>
       </div>
@@ -203,7 +210,9 @@ console.log(dept_id)
         {loading ? (
           <span className="menuloader"></span>
         ) : (
-          <div>
+          <>
+          {deleted ? (<span className='alert alert-warning'>Deleting staff in progress wait for few seconds...</span>):''}
+           <div>
             <table id="myTable" className="table table-striped table-hover">
               <thead>
                 <tr>
@@ -231,7 +240,7 @@ console.log(dept_id)
                           <DropdownMenuSeparator />
                           <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
                             <DropdownMenuRadioItem value="top" onClick={() => handleEdit(teacher.id)} className='edit_btn pointer cursor-pointer hover:bg-red-500 hover:text-white transition-colors duration-300'>Edit Teacher</DropdownMenuRadioItem>
-                            <DropdownMenuRadioItem value="bottom" onClick={() => handleDelete(teacher.user)} className='delete_btn cursor-pointer hover:bg-red-500 hover:text-white transition-colors duration-300'>Delete Account</DropdownMenuRadioItem>
+                            <DropdownMenuRadioItem value="bottom" onClick={() => handleDelete(teacher.user)} className='delete_btn cursor-pointer hover:bg-red-500 hover:text-white transition-colors duration-300'> {deleted ? 'Deleting...' : 'Delete Account'}</DropdownMenuRadioItem>
                           </DropdownMenuRadioGroup>
                         </DropdownMenuContent>
                       </DropdownMenu>
@@ -241,6 +250,8 @@ console.log(dept_id)
               </tbody>
             </table>
           </div>
+          </>
+         
         )}
       </div>
       </>
